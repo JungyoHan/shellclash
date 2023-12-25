@@ -54,8 +54,11 @@ ckstatus(){
 	#开机自启检测
 	if [ -f /etc/rc.common ];then
 		[ -n "$(find /etc/rc.d -name '*clash')" ] && autostart=enable || autostart=disable
-	elif [ -w /etc/systemd/system -o -w /usr/lib/systemd/system ];then
+	elif 
+	#coreelec systemd
+	[ -w /etc/systemd/system -o -w /usr/lib/systemd/system -o -w /storage/.config/system.d ];then
 		[ -n "$(systemctl is-enabled clash.service 2>&1 | grep enable)" ] && autostart=enable || autostart=disable
+
 	else
 		[ -f $clashdir/.dis_startup ] && autostart=disable || autostart=enable
 	fi
@@ -889,7 +892,8 @@ macfilter(){
 	fi
 }
 localproxy(){
-	[ -w /etc/systemd/system/clash.service -o -w /usr/lib/systemd/system/clash.service -o -x /bin/su ] && local_enh=1
+	#coreelec service
+	[ -w /etc/systemd/system/clash.service -o -w /usr/lib/systemd/system/clash.service -o -w /storage/.config/system.d/clash.service -o -x /bin/su ] && local_enh=1
 	[ -f /etc/rc.common -a -w /etc/passwd ] && local_enh=1
 	echo -----------------------------------------------
 	[ -n "$local_enh" ] && {
@@ -970,7 +974,8 @@ setboot(){
 			setconfig start_old $start_old
 			$clashdir/start.sh stop
 		else
-			if [ -f /etc/init.d/clash -o -w /etc/systemd/system -o -w /usr/lib/systemd/system ];then
+		#coreelec systemd
+			if [ -f /etc/init.d/clash -o -w /etc/systemd/system -o -w /usr/lib/systemd/system -o -w /storage/.config/system.d ];then
 				echo -e "\033[32m改为使用系统守护进程启动clash服务！！\033[0m"
 				$clashdir/start.sh cronset "ShellClash初始化"
 				start_old=未开启
@@ -2013,6 +2018,8 @@ case "$1" in
 			else
 				rm -rf $clashdir
 			fi
+			#coreelec profile
+			[ -w ~/.profile ] && profile=~/.profile
 			[ -w ~/.bashrc ] && profile=~/.bashrc
 			[ -w /etc/profile ] && profile=/etc/profile
 			sed -i '/alias clash=*/'d $profile
@@ -2026,6 +2033,8 @@ case "$1" in
 			rm -rf /etc/init.d/clash
 			rm -rf /etc/systemd/system/clash.service
 			rm -rf /usr/lib/systemd/system/clash.service
+			#coreelec system
+			rm -rf /storage/.config/system/clash.service
 			rm -rf /www/clash
 			rm -rf /tmp/clash_$USER
 			sed -Ei s/0:7890/7890:7890/g /etc/passwd

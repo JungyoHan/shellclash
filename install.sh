@@ -42,7 +42,7 @@ webget(){
 	fi
 }
 error_down(){
-	#$echo "请参考 \033[32mhttps://github.com/juewuy/ShellClash/blob/master/README_CN.md"
+	#$echo "请参考 \033[32mhttps://github.com/JungyoHan/shellclash/blob/master/README_CN.md"
 	$echo  "\033[33m使用其他安装源重新安装！\033[0m" 
 }
 #安装及初始化
@@ -223,7 +223,7 @@ if [ "$USER" != "root" -a -z "$systype" ];then
 fi
 
 #检查更新
-url_cdn="https://fastly.jsdelivr.net/gh/juewuy/ShellClash"
+url_cdn="https://fastly.jsdelivr.net/gh/JungyoHan/shellclash"
 [ -z "$url" ] && url=$url_cdn
 echo -----------------------------------------------
 $echo "\033[33m请选择想要安装的版本：\033[0m"	

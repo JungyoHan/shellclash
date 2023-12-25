@@ -1115,7 +1115,7 @@ bfstart(){
 	#读取配置文件
 	getconfig
 	[ ! -d $bindir/ui ] && mkdir -p $bindir/ui
-	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master
+	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/JungyoHan/shellclash@master
 	#检查yaml配置文件
 	if [ ! -f $yaml ];then
 		if [ -n "$Url" -o -n "$Https" ];then
@@ -1156,7 +1156,7 @@ bfstart(){
 			fi
 			[ -z "$cpucore" ] && source $clashdir/getdate.sh && getcpucore
 			[ -z "$cpucore" ] && logger 找不到设备的CPU信息，请手动指定处理器架构类型！ 31 && setcpucore
-			[ "$update_url" = "https://jwsc.eu.org:8888" ] && [ "$clashcore" != 'clash' ] && update_url=https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master
+			[ "$update_url" = "https://jwsc.eu.org:8888" ] && [ "$clashcore" != 'clash' ] && update_url=https://fastly.jsdelivr.net/gh/JungyoHan/shellclash@master
 			$0 webget $bindir/clash "$update_url/bin/$clashcore/clash-linux-$cpucore"
 			#校验内核
 			chmod +x $bindir/clash 2>/dev/null
@@ -1409,9 +1409,9 @@ webget)
 			getconfig
 			[ -n "$authentication" ] && auth="$authentication@"
 			export all_proxy="http://${auth}127.0.0.1:$mix_port"
-			url=$(echo $3 | sed 's#https://fastly.jsdelivr.net/gh/juewuy/ShellClash[@|/]#https://raw.githubusercontent.com/juewuy/ShellClash/#' | sed 's#https://gh.jwsc.eu.org/#https://raw.githubusercontent.com/juewuy/ShellClash/#')
+			url=$(echo $3 | sed 's#https://fastly.jsdelivr.net/gh/JungyoHan/shellclash[@|/]#https://raw.githubusercontent.com/JungyoHan/shellclash/#' | sed 's#https://gh.jwsc.eu.org/#https://raw.githubusercontent.com/JungyoHan/shellclash/#')
 		else
-			url=$(echo $3 | sed 's#https://raw.githubusercontent.com/juewuy/ShellClash/#https://fastly.jsdelivr.net/gh/juewuy/ShellClash@#')
+			url=$(echo $3 | sed 's#https://raw.githubusercontent.com/JungyoHan/shellclash/#https://fastly.jsdelivr.net/gh/JungyoHan/shellclash@#')
 		fi
 		#参数【$2】代表下载目录，【$3】代表在线地址
 		#参数【$4】代表输出显示，【$4】不启用重定向

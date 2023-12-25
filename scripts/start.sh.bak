@@ -4,7 +4,9 @@
 #初始化目录
 [ -d "/etc/storage/clash" ] && clashdir=/etc/storage/clash
 [ -d "/jffs/clash" ] && clashdir=/jffs/clash
+[ -d "/storage/.opt/etc/clash" ] && clashdir=/storage/.opt/etc/clash #coreelec file
 [ -z "$clashdir" ] && clashdir=$(cat /etc/profile | grep clashdir | awk -F "\"" '{print $2}')
+[ -z "$clashdir" ] && clashdir=$(cat ~/.profile | grep clashdir | awk -F "\"" '{print $2}') #coreelec env
 [ -z "$clashdir" ] && clashdir=$(cat ~/.bashrc | grep clashdir | awk -F "\"" '{print $2}')
 CFG_PATH=$clashdir/configs/ShellClash.cfg
 TMPDIR=/tmp/ShellClash && [ ! -f $TMPDIR ] && mkdir -p $TMPDIR
@@ -174,7 +176,7 @@ getyaml(){
 	fi
 	#输出
 	echo -----------------------------------------------
-	logger 正在连接服务器获取配置文件…………
+软链接转化为一般文件	logger 正在连接服务器获取配置文件…………
 	echo -e "链接地址为：\033[4;32m$Https\033[0m"
 	echo 可以手动复制该链接到浏览器打开并查看数据是否正常！
 	#获取在线yaml文件
@@ -1368,6 +1370,10 @@ init)
 			done
 			profile=/etc/profile
 			sed -i '' $profile #将软链接转化为一般文件
+		#coreelec clashdir
+		elif [ -d "/storage/.opt/etc/clash" ];then
+			clashdir=/storage/.opt/etc/clash
+			profile=/storage/.profile
 		elif [ -d "/jffs" ];then
 			sleep 60
 			if [ -w /etc/profile ];then
@@ -1456,13 +1462,16 @@ cronset)
 set_proxy)
 		getconfig
 		if  [ "$local_type" = "环境变量" ];then
+			#coreelec profile
+			[ -w ~/.profile ] && profile=~/.profile
 			[ -w ~/.bashrc ] && profile=~/.bashrc
 			[ -w /etc/profile ] && profile=/etc/profile
 			echo 'export all_proxy=http://127.0.0.1:'"$mix_port" >> $profile
 			echo 'export ALL_PROXY=$all_proxy' >>  $profile
 		fi
 	;;
-unset_proxy)	
+unset_proxy)
+		[ -w ~/.profile ] && profile=~/.profile	
 		[ -w ~/.bashrc ] && profile=~/.bashrc
 		[ -w /etc/profile ] && profile=/etc/profile
 		sed -i '/all_proxy/'d  $profile

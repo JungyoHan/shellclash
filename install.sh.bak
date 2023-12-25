@@ -207,7 +207,7 @@ echo -----------------------------------------------
 	}
 [ -f "/storage/.cache/coreelec" ] && {
 	systype=coreelec #CoreELEC 
-	initdir='/storage/.opt/etc'
+	#initdir='/storage/.opt/etc'
 	}	
 [ -f "/data/etc/crontabs/root" ] && systype=mi_snapshot #小米设备
 [ -w "/var/mnt/cfg/firewall" ] && systype=ng_snapshot #NETGEAR设备

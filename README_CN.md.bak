@@ -8,8 +8,8 @@
 	<a target="_blank" href="https://github.com/Dreamacro/clash/releases">
     <img src="https://img.shields.io/github/release/Dreamacro/Clash.svg?style=flat-square&label=Clash">
   </a>
-  <a target="_blank" href="https://github.com/JungyoHan/shellclash/releases">
-    <img src="https://img.shields.io/github/release/JungyoHan/shellclash.svg?style=flat-square&label=ShellClash&colorB=green">
+  <a target="_blank" href="https://github.com/juewuy/ShellClash/releases">
+    <img src="https://img.shields.io/github/release/juewuy/ShellClash.svg?style=flat-square&label=ShellClash&colorB=green">
   </a>
 </p>
 
@@ -25,7 +25,7 @@
 
 设备支持：
 --
-~增加支持CoreELEC或LibreELEC系统环境部署
+
 ~支持各种基于OpenWrt或使用OpenWrt二次定制开发的路由器设备<br>
 ~支持各种运行标准Linux系统（如Debian/CenOS/Armbian等）的设备<br>~兼容Padavan固件（保守模式）、潘多拉固件以及华硕/梅林固件<br>~兼容各类使用Linux内核定制开发的各类型设备<br>
 
@@ -52,7 +52,7 @@
 ```shell
 sudo -i #切换到root用户，如果需要密码，请输入密码
 bash #如已处于bash环境可跳过
-export url='https://fastly.jsdelivr.net/gh/JungyoHan/shellclash@master' && wget -q --no-check-certificate -O /tmp/install.sh $url/install.sh  && bash /tmp/install.sh && source /etc/profile &> /dev/null
+export url='https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master' && wget -q --no-check-certificate -O /tmp/install.sh $url/install.sh  && bash /tmp/install.sh && source /etc/profile &> /dev/null
 ```
 或者
 ```shell
@@ -65,26 +65,41 @@ export url='https://gh.jwsc.eu.org/master' && bash -c "$(curl -kfsSl $url/instal
 
 ```shell
 #GitHub源(可能需要代理)
-export url='https://raw.githubusercontent.com/JungyoHan/shellclash/master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+export url='https://raw.githubusercontent.com/juewuy/ShellClash/master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
 ```
 或者
 ```shell
 #jsDelivrCDN源
-export url='https://fastly.jsdelivr.net/gh/JungyoHan/shellclash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+export url='https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+```
+或者
+```shell
+#作者私人源
+export url='https://gh.jwsc.eu.org/master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
 ```
 
 ~**路由设备使用wget安装**：<br>
 
 ```Shell
 #GitHub源(可能需要代理)
-export url='https://raw.githubusercontent.com/JungyoHan/shellclash/master' && wget -q --no-check-certificate -O /tmp/install.sh $url/install.sh  && sh /tmp/install.sh && source /etc/profile &> /dev/null
+export url='https://raw.githubusercontent.com/juewuy/ShellClash/master' && wget -q --no-check-certificate -O /tmp/install.sh $url/install.sh  && sh /tmp/install.sh && source /etc/profile &> /dev/null
 ```
 或者
 ```shell
 #jsDelivrCDN源
-export url='https://fastly.jsdelivr.net/gh/JungyoHan/shellclash@master' && wget -q --no-check-certificate -O /tmp/install.sh $url/install.sh  && sh /tmp/install.sh && source /etc/profile &> /dev/null
+export url='https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master' && wget -q --no-check-certificate -O /tmp/install.sh $url/install.sh  && sh /tmp/install.sh && source /etc/profile &> /dev/null
 ```
 
+~**老旧设备使用低版本wge安装**：<br>
+
+```Shell
+#作者私人http内测源
+export url='http://t.jwsc.eu.org' && wget -q -O /tmp/install.sh $url/install.sh  && sh /tmp/install.sh && source /etc/profile &> /dev/null
+```
+
+~**DOCKER环境下安装：**<br>
+
+请参考 [ShellClash_docker 一键脚本和镜像](https://github.com/echvoyager/shellclash_docker)
 
 ### **本地安装：**<br>
 
@@ -116,3 +131,25 @@ crontab			较低		缺少时无法启用定时任务功能
 net-tools		极低		缺少时无法正常检测端口占用
 ubus/iproute-doc	极低		缺少时无法正常获取本机host地址
 ```
+
+
+
+更新日志：
+--
+
+### [点击查看](https://github.com/juewuy/ShellClash/releases)
+
+交流反馈：
+--
+### [TG讨论组](https://t.me/ShellClash) 
+
+## 请喝杯茶：
+
+​		支付宝										微信
+
+##### <img src="http://juewuy.github.io/post-images/1604390977172.png" style="zoom:50%;" /><img src="http://juewuy.github.io/post-images/1604391042406.png" style="zoom:50%;" />
+
+机场推荐：
+--
+#### [大米-群友力荐，流媒体解锁，月付推荐](https://www.bigme.pro/user#/register?code=2PuWY9I7)<br>
+#### [Dler-老牌稳定，流媒体解锁，年付推荐](https://dler.best/auth/register?affid=89698)<br>

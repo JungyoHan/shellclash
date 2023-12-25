@@ -16,7 +16,7 @@ ckcmd(){
 ckstatus(){
 
 	#服务器缺省地址
-	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/juewuy/ShellClash
+	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/JungyoHan/shellclash
 	#检查/读取脚本配置文件
 	if [ -f $CFG_PATH ];then
 		#检查重复行并去除
@@ -235,7 +235,7 @@ log_pusher(){
 				setconfig chat_ID
 			}
 		else
-			#echo -e "\033[33m详细设置指南请参考 https://juewuy.github.io/ \033[0m"
+			#echo -e "\033[33m详细设置指南请参考 https://JungyoHan.github.io/ \033[0m"
 			echo -e "请先通过 \033[32;4mhttps://t.me/BotFather\033[0m 申请TG机器人并获取其\033[36mAPI TOKEN\033[0m"
 			echo -----------------------------------------------
 			read -p "请输入你获取到的API TOKEN > " TOKEN
@@ -275,7 +275,7 @@ log_pusher(){
 				setconfig push_Deer
 			}
 		else
-			#echo -e "\033[33m详细设置指南请参考 https://juewuy.github.io/ \033[0m"
+			#echo -e "\033[33m详细设置指南请参考 https://JungyoHan.github.io/ \033[0m"
 			echo -e "请先前往 \033[32;4mhttp://www.pushdeer.com/official.html\033[0m 扫码安装快应用或下载APP"
 			echo -e "打开快应用/APP，并完成登陆"
 			echo -e "\033[33m切换到「设备」标签页，点击右上角的加号，注册当前设备\033[0m"
@@ -304,7 +304,7 @@ log_pusher(){
 				setconfig bark_param
 			}
 		else
-			#echo -e "\033[33m详细设置指南请参考 https://juewuy.github.io/ \033[0m"
+			#echo -e "\033[33m详细设置指南请参考 https://JungyoHan.github.io/ \033[0m"
 			echo -e "\033[33mBark推送仅支持IOS系统，其他平台请使用其他推送方式！\033[0m"
 			echo -e "\033[32m请安装Bark-IOS客户端，并在客户端中找到专属推送链接\033[0m"
 			echo -----------------------------------------------
@@ -339,7 +339,7 @@ log_pusher(){
 				setconfig push_Po_key
 			}
 		elif curl --version &> /dev/null;then 
-			#echo -e "\033[33m详细设置指南请参考 https://juewuy.github.io/ \033[0m"
+			#echo -e "\033[33m详细设置指南请参考 https://JungyoHan.github.io/ \033[0m"
 			echo -e "请先通过 \033[32;4mhttps://pushover.net/\033[0m 注册账号并获取\033[36mUser Key\033[0m"
 			echo -----------------------------------------------
 			read -p "请输入你的User Key > " key
@@ -1176,7 +1176,7 @@ clashcfg(){
 			echo -e "HTTP/SOCK5代理服务器地址：\033[30;47m$host\033[0m;端口均为：\033[30;47m$mix_port\033[0m"
 			echo -e "也可以使用更便捷的PAC自动代理，PAC代理链接为："
 			echo -e "\033[30;47m http://$host:$db_port/ui/pac \033[0m"
-			echo -e "PAC的使用教程请参考：\033[4;32mhttps://juewuy.github.io/ehRUeewcv\033[0m"
+			echo -e "PAC的使用教程请参考：\033[4;32mhttps://JungyoHan.github.io/ehRUeewcv\033[0m"
 			sleep 2
 		else
 			errornum
@@ -1987,7 +1987,7 @@ case "$1" in
 		echo -----------------------------------------
 		echo "在线求助：t.me/ShellClash"
 		echo "官方博客：juewuy.github.io"
-		echo "发布页面：github.com/juewuy/ShellClash"
+		echo "发布页面：github.com/JungyoHan/shellclash"
 		echo -----------------------------------------
 	;;
 	-t)
