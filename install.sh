@@ -93,8 +93,7 @@ setdir(){
 	}
 echo -----------------------------------------------
 $echo "\033[33m注意：安装ShellClash至少需要预留约1MB的磁盘空间\033[0m"
-if [ -n "$systype" ]
-	
+if [ -n "$systype" ];then
 	[ "$systype" = "Padavan" ] && dir=/etc/storage
 	#coreelec dir
 	[ "$systype" = "coreelec" ] && dir=/storage/.opt/etc
