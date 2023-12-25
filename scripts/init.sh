@@ -190,8 +190,7 @@ setconfig versionsh_l $version
 [ -n "$url" ] && setconfig update_url $url
 #设置环境变量
 [ -w /opt/etc/profile ] && profile=/opt/etc/profile
-#coreelec env
-[ -w /storage/.profile ] && profile=/storage/.profile
+[ -w ~/.profile ] && profile=~/.profile #coreelec env
 [ -w /jffs/configs/profile.add ] && profile=/jffs/configs/profile.add
 [ -w ~/.bashrc ] && profile=~/.bashrc
 [ -w /etc/profile ] && profile=/etc/profile

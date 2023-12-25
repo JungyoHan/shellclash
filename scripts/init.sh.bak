@@ -169,7 +169,7 @@ if [ -f /etc/rc.common ];then
 else
 	[ -w /etc/systemd/system ] && sysdir=/etc/systemd/system
 	[ -w /usr/lib/systemd/system ] && sysdir=/usr/lib/systemd/system
-	#LibreELEC systemd
+	#coreelec systemd
 	[ -w /storage/.config/system.d ] && sysdir=/storage/.config/system.d
 	if [ -n "$sysdir" -a -z "$WSL_DISTRO_NAME" ];then #wsl环境不使用systemd
 		#设为systemd方式启动
